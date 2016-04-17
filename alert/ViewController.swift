@@ -20,6 +20,23 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func alert(sender: AnyObject) {
+        
+        let alert=UIAlertController(title: "formulaire", message: "veuillez saisir vos infos", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addAction(UIAlertAction(title: "cancel", style: UIAlertActionStyle.Default, handler:nil))
+        alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.Default, handler: { (actionman) in
+            print("ok")
+        }))
+        
+        alert.addTextFieldWithConfigurationHandler { (field) in
+            field.placeholder="entrer votre nom"
+        }
+        
+        self.presentViewController(alert, animated: true) { 
+            print("finished")
+        }
+    }
 
 }
 
